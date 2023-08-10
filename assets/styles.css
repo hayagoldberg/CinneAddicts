@@ -1,0 +1,294 @@
+/* ------------------------------------------ */
+/* Header of all pages */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 20px 0 10px;
+}
+
+/* Header buttons, all in the same ligne */
+.buttons-container {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+/* Reduce margin around buttons and logo image */
+.Login-link,
+.Signup-link,
+.Logout-link,
+img {
+    margin: 0 10px;
+}
+
+/* style the authentication buttons*/
+.btn-grad {
+background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%);
+margin: 10px;
+padding: 10px 40px;
+text-align: center;
+transition: 0.5s;
+font-size: 15px;
+font-weight: bold;
+background-size: 200% auto;
+color: black;
+border-radius: 10px;
+display: block;
+}
+
+.btn-grad:hover {
+background-position: right center; /* change the direction of the change here */
+color: lightgray;
+text-decoration: none;
+}
+
+/* ------------------------------------------ */
+/* Index page */
+body{
+    background-color: #161616;
+    color: white;
+      font-family: Arial, sans-serif;
+}
+
+/* Display four movies or less in a ligne */
+.four_in_a_lign_parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.four_in_a_lign_child {
+  width: 23%;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+/* change number off element in a lign according to screen size by changing the width */
+@media (max-width: 1024px) {
+  .four_in_a_lign_child {
+    width: 31%;
+  }
+}
+
+@media (max-width: 768px) {
+  .four_in_a_lign_child {
+    width: 48%;
+  }
+}
+
+@media (max-width: 576px) {
+  .four_in_a_lign_child {
+    width: 100%;
+  }
+}
+
+/* Reset default margins and paddings */
+body, h1, h3, p, span {
+  margin-bottom: 15px;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* ------------------------------------------ */
+/* movie page */
+
+.movie-page {
+  position: relative;
+}
+
+/* Background image */
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Background black hover on top of the image */
+.background-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Center content vertically */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: flex-start;
+}
+
+/* Style the content area */
+.movie-info {
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  display: flex;
+  font-family: "Bookman Old Style";
+}
+
+/* Style the titles */
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px; /* Ajouter une marge en bas du titre */
+}
+
+h3 {
+  font-size: 35px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+/* Other information */
+span {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.movie-title{
+    line-height: 2.0
+}
+.director{
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.main-actors{
+  font-size: 16px;
+  font-weight: 450;
+  color: lightgrey;
+
+}
+.description {
+  font-size: 15px;
+  color: lightgrey;
+  line-height: 1.5;
+}
+
+.release-year {
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Style the movie image at the right off the text*/
+.movie-flyer {
+  margin-right: 20px;
+}
+
+.movie-flyer img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ------------------------------------ */
+
+/* Style for comments section */
+.comments-section{
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  font-family: "Bookman Old Style";
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.comment-list li {
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-list li:last-child {
+    margin-bottom: 0;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.comment-user {
+    font-weight: bold;
+    color: black;
+}
+
+.comment-date {
+    font-size: 12px;
+    color: black;
+}
+
+.comment-text {
+    margin-top: 5px;
+    color: #444;
+}
+
+.comment-text:before {
+    content: '"';
+}
+
+.comment-text:after {
+    content: '"';
+}
+
+.comment-form {
+    margin-top: 20px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.cmt-sub {
+    background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%);
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    background-size: 200% auto;
+    color: black;
+    border-radius: 5px;
+    display: block;
+    cursor: pointer;
+}
+

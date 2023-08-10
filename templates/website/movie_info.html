@@ -1,0 +1,46 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<body class="movie-page">
+    <div class="background-image" style="background-image: url('{{ movie.image.url }}')"></div>
+
+  <div class="container">
+    <h1 class="title">This is a movie page</h1>
+
+    <div class="movie-info">
+      <div class="movie-flyer">
+        <img src="{{movie.flyer.url}}" alt="{{movie.title}}">
+      </div>
+      <div class="movie-details">
+        <h3 class="movie-title"> {{movie.title}}</h3>
+        <span class="director">Director: {{movie.director}}</span>
+        <span class="main-actors">Main Actors: {{movie.main_actors}}</span>
+        <span class="description"> {{movie.description}}</span>
+        <span class="release-year">Year of Release: {{movie.release_year}}</span>
+      </div>
+    </div>
+</div>
+
+{% if user.is_authenticated %}
+    <div class="container">
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <ul class="comment-list">
+                {% for comment in comments %}
+                    <li>{{ comment.user }} - {{ comment.created_at|date:"F d, Y H:i" }}<br>
+                        {{ comment.text }}</li>
+                {% endfor %}
+            </ul>
+            <h4>Add a Comment</h4>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="cmt-sub" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endif %}
+
+</body>
+{% endblock %}

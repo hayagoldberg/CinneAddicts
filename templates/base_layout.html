@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+
+    <div class="header-container">
+        <a href="{% url 'website:index' %}">
+        <img src=" {% static 'Yoyo_cut.png' %}" height="90" width="250" > </a>
+
+        <div class="buttons-container">
+            {% if user.is_authenticated %}
+                <p> Hello {{ user }}</p>
+                <form class="Logout-link" action="{% url 'accounts:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button class="btn-grad" type="submit"> Logout </button>
+                </form>
+            {% else %}
+                 <form class="Login-link" action="{% url 'accounts:login' %}" method="post">
+                     {% csrf_token %}
+                     <button class="btn-grad" type="submit">Login</button>
+                 </form>
+                 <form class="Signup-link" action="{% url 'accounts:signup' %}" method="post">
+                     {% csrf_token %}
+                     <button class="btn-grad" type="submit">Signup</button>
+                 </form>
+            {% endif %}
+        </div>
+    </div>
+
+<div class="wrapper">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</html>
